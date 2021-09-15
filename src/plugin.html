@@ -1,4 +1,4 @@
-<plugin> 
+<plugin>
     <!-- this Plugin does not have any HTML content -->
     <div class="plugin-content">
         <h3>Forecast tools:</h3>
@@ -91,20 +91,18 @@
 		};
 
 		const makeLines = () => {
-			var transmission_lines = new L.geoJson();
-			transmission_lines.addTo(map);
-
-			$.ajax({
-				dataType: "json",
-				url: "transmission_lines.json",
-				success: function(data) {
-					$(data.features).each(function(key, data) {
-						transmission_lines.addData(data);
-					});
-				}
-			}).error(function() {});
-
-			//geojsonLayer = new L.GeoJSON.AJAX("transmission_lines.json");
+            const response = fetch("transmission_lines.json");
+            //const data = response.json();
+            //var transmission_lines = L.geoJson();
+    		//transmission_lines.addTo(map);
+            fetch("transmission_lines.json")
+                .then(function(response) {
+                    return response.json();
+                })
+                .then(function(data) {
+                    L.geoJSON(data).addTo(map);
+                });                
+            //geojsonLayer = new L.GeoJSON.AJAX("transmission_lines.json");
 			//geojsonLayer.addTo(map);
 		};
 

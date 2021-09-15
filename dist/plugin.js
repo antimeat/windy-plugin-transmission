@@ -68,17 +68,12 @@ function () {
   };
 
   var makeLines = function makeLines() {
-    var transmission_lines = new L.geoJson();
-    transmission_lines.addTo(map);
-    $.ajax({
-      dataType: "json",
-      url: "transmission_lines.json",
-      success: function success(data) {
-        $(data.features).each(function (key, data) {
-          transmission_lines.addData(data);
-        });
-      }
-    }).error(function () {});
+    var response = fetch("transmission_lines.json");
+    fetch("transmission_lines.json").then(function (response) {
+      return response.json();
+    }).then(function (data) {
+      L.geoJSON(data).addTo(map);
+    });
   };
 
   var createPopup = function createPopup(name, lat, lon, auswave, flamingo) {
