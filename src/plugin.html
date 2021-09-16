@@ -95,6 +95,17 @@
             //const data = response.json();
             //var transmission_lines = L.geoJson();
     		//transmission_lines.addTo(map);
+
+            let layerGroup = new L.featureGroup().addTo(map);
+
+            /*
+            var response = fetch("https://unpkg.com/windy-plugin-transmission/dist/transmission_lines.json");
+            var data  = response.json();
+            L.geoJSON(data).addTo(layerGroup);
+            */
+            //layerGroup.toGeoJSON(3);
+
+
             fetch("https://unpkg.com/windy-plugin-transmission/dist/transmission_lines.json")
                 .then(function(response) {
                     return response.json();
@@ -102,6 +113,9 @@
                 .then(function(data) {
                     L.geoJSON(data).addTo(map);
                 });
+
+            layerGroup.toGeoJSON(3);
+
             //geojsonLayer = new L.GeoJSON.AJAX("transmission_lines.json");
 			//geojsonLayer.addTo(map);
 		};
@@ -146,7 +160,7 @@
 				bcast.on('redrawFinished', makeMarkers);
 
 			}
-			bcast.on('redrawFinished', makeLines);
+			//bcast.on('redrawFinished', makeLines);
 
 		};
 
@@ -162,7 +176,7 @@
 				bcast.off('redrawFinished', makeMarkers);
 				markers = null;
             }
-			bcast.off('redrawFinished', makeLines);
+			//bcast.off('redrawFinished', makeLines);
 
         };
     </script>
