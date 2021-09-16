@@ -81,7 +81,7 @@ function() {
 
 		const makeLines = () => {
 
-            fetch("https://www.windy.com/img/windy-plugins/transmission_lines.json")
+            fetch("https://unpkg.com/windy-plugin-transmission/dist/transmission_lines.json")
                 .then(function(response) {
                     return response.json();
                 })
