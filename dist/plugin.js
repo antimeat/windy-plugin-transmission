@@ -103,6 +103,8 @@ function () {
       });
       bcast.on('redrawFinished', makeMarkers);
     }
+
+    makeLines();
   };
 
   this.onclose = function () {
