@@ -133,13 +133,13 @@
 		// 	return marker;
         // };
 
-        bcast.on('rqstClose', () => {
-		    if (!markers) {
-                markers = locations.map(p => createPopup(p[0],p[1],p[2],p[3],p[4]));
-				bcast.on('redrawFinished', makeMarkers);
-			}
-
-		});
+        // bcast.on('rqstClose', () => {
+		//     if (!markers) {
+        //         markers = locations.map(p => createPopup(p[0],p[1],p[2],p[3],p[4]));
+		// 		bcast.on('redrawFinished', makeMarkers);
+		// 	}
+        //
+		// });
 
         /*
 		this.onopen = () => {
@@ -154,14 +154,13 @@
 
 		//	this.onopen method is called when your plugin is being opened
         this.onopen = () => {
-            if (!markers) {
-                markers = locations.map(p => createPopup(p[0],p[1],p[2],p[3],p[4],p[5],p[6],p[7],p[8]));
-				//markers = locations.map(p => createPopup(makeMarkers));
-				bcast.on('redrawFinished', makeMarkers);
-
-			}
+            // if (!markers) {
+            //     markers = locations.map(p => createPopup(p[0],p[1],p[2],p[3],p[4],p[5],p[6],p[7],p[8]));
+			// 	//markers = locations.map(p => createPopup(makeMarkers));
+			// 	bcast.on('redrawFinished', makeMarkers);
+            //
+			// }
 			makeLines();
-
 		};
 
         //*
@@ -171,11 +170,11 @@
         //
 
         this.onclose = () => {
-            if (markers) {
-                markers.forEach(m => map.removeLayer(m));
-				bcast.off('redrawFinished', makeMarkers);
-				markers = null;
-            }
+            // if (markers) {
+            //     markers.forEach(m => map.removeLayer(m));
+			// 	bcast.off('redrawFinished', makeMarkers);
+			// 	markers = null;
+            // }
 			//bcast.off('redrawFinished', makeLines);
 
         };
