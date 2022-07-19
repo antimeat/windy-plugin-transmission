@@ -20,7 +20,7 @@ W.loadPlugin(
 /* Mounting options */
 {
   "name": "windy-plugin-transmission",
-  "version": "1.1.2",
+  "version": "1.0.1",
   "author": "Darryl Vink",
   "repository": {
     "type": "git",

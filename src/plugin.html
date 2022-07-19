@@ -70,25 +70,25 @@
 		];
 
 
-        console.log('I am being mounted');
-
-		const icon = L.icon({
-            className: 'resources-icon',
-			iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-green.png',
-			//iconSize: [80, 40],
-            //iconAnchor: [20, 10],
-			opacity: 0.5,
-        });
+        // console.log('I am being mounted');
+        //
+		// const icon = L.icon({
+        //     className: 'resources-icon',
+		// 	iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-green.png',
+		// 	//iconSize: [80, 40],
+        //     //iconAnchor: [20, 10],
+		// 	opacity: 0.5,
+        // });
 
 		// List of current markers and icons
-        let markers = null;
+        // let markers = null;
 
 		// generate markers
-		const makeMarkers = () => {
-			markers.forEach((m, i) => {
-				const [name, lat, lon, auswave, flamingo] = locations[i];
-			});
-		};
+		// const makeMarkers = () => {
+		// 	markers.forEach((m, i) => {
+		// 		const [name, lat, lon, auswave, flamingo] = locations[i];
+		// 	});
+		// };
 
 		const makeLines = () => {
             //const response = fetch("./transmission_lines.json");
@@ -120,18 +120,18 @@
 			//geojsonLayer.addTo(map);
 		};
 
-        const createPopup = (name,lat,lon,auswave,flamingo) => {
-            const marker = L.marker([lat, lon],{
-				icon: map.myMarkers.icon,
-				zIndexOffset: -300,
-            }).addTo(map);
-
-			marker.bindTooltip(name);
-
-			marker.bindPopup('<br>' + name + '<br>' + auswave + '<br>' + flamingo);
-
-			return marker;
-        };
+        // const createPopup = (name,lat,lon,auswave,flamingo) => {
+        //     const marker = L.marker([lat, lon],{
+		// 		icon: map.myMarkers.icon,
+		// 		zIndexOffset: -300,
+        //     }).addTo(map);
+        //
+		// 	marker.bindTooltip(name);
+        //
+		// 	marker.bindPopup('<br>' + name + '<br>' + auswave + '<br>' + flamingo);
+        //
+		// 	return marker;
+        // };
 
         bcast.on('rqstClose', () => {
 		    if (!markers) {
