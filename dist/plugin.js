@@ -8,7 +8,7 @@ W.loadPlugin(
 /* Mounting options */
 {
   "name": "windy-plugin-transmission",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "author": "Darryl Vink",
   "repository": {
     "type": "git",
@@ -78,31 +78,12 @@ function() {
 
 		};
 
-        bcast.on('rqstClose', () => {
-		    if (!markers) {
-                markers = locations.map(p => createPopup(p[0],p[1],p[2],p[3],p[4]));
-				bcast.on('redrawFinished', makeMarkers);
-			}
-
-		});
-
         this.onopen = () => {
-            if (!markers) {
-                markers = locations.map(p => createPopup(p[0],p[1],p[2],p[3],p[4],p[5],p[6],p[7],p[8]));
 
-				bcast.on('redrawFinished', makeMarkers);
-
-			}
 			makeLines();
-
 		};
 
         this.onclose = () => {
-            if (markers) {
-                markers.forEach(m => map.removeLayer(m));
-				bcast.off('redrawFinished', makeMarkers);
-				markers = null;
-            }
 
         };
 
